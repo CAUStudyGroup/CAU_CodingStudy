@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-	cout << "I Fixed something!";
+	cout << "Clone Test";
 	return 0;
 }
