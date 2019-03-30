@@ -2,9 +2,8 @@
 
 using namespace std;
 int main() {
-	char c_input; int n_output;
+	char c_input;
 	cin >> c_input;
-	n_output = (int)c_input;
-	cout << n_output;
+	cout << (int)c_input;
 	return 0;
 }
