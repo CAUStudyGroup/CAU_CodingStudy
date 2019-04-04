@@ -3,14 +3,14 @@
 using namespace std;
 int number[10000001];
 int question[100001];
-int ans[10000001];
+int ans[10000001] = { 0, };
 int main() {
 	cin.tie(NULL);
 	ios::sync_with_stdio(false);
 	int n; cin >> n;
 	for (int i = 0; i < n; i++) {
 		cin >> number[i];
-		cout
+		ans[number[i]] = 1;
 	}
 	int q;
 	cin >> q;
@@ -18,17 +18,7 @@ int main() {
 		cin >> question[i];
 	}
 	for (int i = 0; i < q; i++) {
-		for (int j = 0; j < n; j++) {
-			if (question[i] == number[j]) {
-				ans[i] = 1;
-			}
-		}
-		if (ans[i] != 1) {
-			ans[i] = 0;
-		}
-	}
-	for (int i = 0; i < q; i++) {
-		cout << ans[i]<<" ";
+		cout << ans[question[i]] << " ";
 	}
 	cout << "\n";
 	return 0;
