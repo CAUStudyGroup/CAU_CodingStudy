@@ -4,7 +4,7 @@ using namespace std;
 
 int two(long long a)
 {
-	long long count = 0;
+	int count = 0;
 	for (long long i = 2; i <= a; i *= 2)
 	{
 		count += (a/i);
@@ -14,7 +14,7 @@ int two(long long a)
 
 int five(long long b)
 {
-	long long count = 0;
+	int count = 0;
 	for (long long i = 1; i <= b; i *= 5)
 		count += (b/i);
 	return count;
