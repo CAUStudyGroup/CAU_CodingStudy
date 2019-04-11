@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 #define MOD 10007
 int main()
@@ -18,7 +18,7 @@ int main()
 		DP[i] = 1;
 	}
 
-	for (int j = 2; j <= N; j++) // °è´Ü ¹øÈ£
+	for (int j = 2; j <= N; j++) // ê³„ë‹¨ ë²ˆí˜¸
 	{
 		for(int k = 1; k <= 9; k++)
 		{ 
