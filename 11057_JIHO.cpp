@@ -18,7 +18,7 @@ int main()
 		DP[i] = 1;
 	}
 
-	for (int j = 2; j <= N; j++) // 계단 번호
+	for (int j = 2; j <= N; j++) 
 	{
 		for(int k = 1; k <= 9; k++)
 		{ 
