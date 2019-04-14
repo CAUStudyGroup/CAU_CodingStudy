@@ -11,15 +11,15 @@ int main()
 	string tmp;
 	cin >> tmp;
 	tmp += ")";
-	str += tmp; // 큰괄호
+	str += tmp; 
 
 	for (int i = 0; i < str.length(); i++)
 	{
-		if (str[i] >= 65 && str[i] <= 90) // 미지수 거르기
+		if (str[i] >= 65 && str[i] <= 90) // 수는 출력
 		{
 			cout << str[i];
 		}
-		else // 미지수 말고
+		else 
 		{
 			if (str[i] != ')')
 			{

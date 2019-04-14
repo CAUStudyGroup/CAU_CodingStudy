@@ -68,7 +68,7 @@ int main()
 			}
 			if (!s.empty())
 			{
-				if (s.top().x == N - 1 && s.top().y == M - 1)// 비엉ㅆ을때 검사 하기 !!!1
+				if (s.top().x == N - 1 && s.top().y == M - 1)
 				{
 					//break;
 					if (min >= s.top().count)
