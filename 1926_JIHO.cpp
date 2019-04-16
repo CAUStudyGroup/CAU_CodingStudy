@@ -6,18 +6,13 @@ int arr[501][501];
 
 int visit[501][501];
 
-struct pic
-{
-	int one; 
-	int two;
-};
 int main()
 {
 	int n, m;
 
 	cin >> n >> m;
 
-	queue<struct pic> q;
+	queue<pair<int,int>> q;
 
 	for (int i = 0; i < n; i++)
 	{
@@ -40,8 +35,8 @@ int main()
 				S = 0;
 				while (1)
 				{
-					int a = q.front().one;
-					int b = q.front().two;
+					int a = q.front().first;
+					int b = q.front().second;
 
 					if (a > 0 && visit[a - 1][b] == 0)
 					{
