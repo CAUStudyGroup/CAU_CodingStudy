@@ -36,7 +36,7 @@ int main()
 			if (arr[tmp + 1] == arr[n - 1])
 			{
 				int min = arr[n - 1] - arr[tmp]; //만약 그냥 더하는 것보다 평균이 있다면?
-				if ((arr[tmp] + arr[n - 1]) / 2 < min)
+				if (arr[n-1]-((arr[tmp] + arr[n - 1]) / 2) <= min)
 				{
 					 m = (arr[tmp] + arr[n - 1]) / 2;
 					if (m - arr[tmp] == arr[n - 1] - m)
@@ -71,8 +71,5 @@ int main()
 			}
 		}
 	}
-
-
-
 	return 0;
 }
