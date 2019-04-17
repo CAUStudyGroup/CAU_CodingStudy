@@ -3,49 +3,36 @@
 #include <algorithm>
 using namespace std;
 enum DAYS{
-	MON,TUE,WED,THU,FRI,SAT,SUN
+	SUN,MON,TUE,WED,THU,FRI,SAT
 };
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	int foods[3];
-	int tmpStoredFoods[3];
-	int today;
-	int dayCnt = 0;
+	int originalRestFoods[3];
+	int restDays = 0, cycleDay;
+	vector<int> arr_RestDays;
 	int itDay;
-	int firstDay, lastDay;
-	int maxFood=-1, maxIdx;
 	bool isTripEnd = false;
-	vector<int>v_dayCnt;
 	for (int i = 0; i < 3; i++) {
 		cin >> foods[i];
-		tmpStoredFoods[i] = foods[i];
-		if (maxFood <= foods[i]) {
-			maxFood = foods[i];
-			maxIdx = i;
-		}
 	}
-	switch (maxIdx)
-	{
-	case 0://Fish
-		firstDay = FRI;
-		lastDay = SUN;
-		break;
-	case 1://Rabbit
-		firstDay = MON;
-		lastDay = WED;
-		break;
-	case 2://Chicken
-		firstDay = TUE;
-		lastDay = THU;
-		break;
-	}
-	for (itDay = firstDay; itDay <= lastDay; itDay++) {
+	int m = min(foods[0] / 3, min(foods[1] / 2, foods[2] / 2));
+	int baseDays = m * 7;
+
+	foods[0] = foods[0] - m * 3;
+	foods[1] = foods[1] - m * 2;
+	foods[2] = foods[2] - m * 2;
+	if (foods[0] > 3) foods[0] = 3;
+	if (foods[1] > 2) foods[1] = 2;
+	if (foods[2] > 2) foods[2] = 2;
+	std::copy(std::begin(foods), std::end(foods), std::begin(originalRestFoods));
+	for (itDay = SUN; itDay <= SAT; itDay++) {
 		isTripEnd = false;
-		dayCnt = itDay;
-		while (true) {
-			today = dayCnt % 7;
-			switch (today)
+		restDays = itDay;
+		while(true) {
+			cycleDay = restDays % 7;
+			switch (cycleDay)
 			{
 			case MON: case THU: case SUN:
 				if (0 != foods[0])
@@ -60,20 +47,20 @@ int main() {
 					isTripEnd = true;
 				break;
 			case WED: case FRI:
-				if (0 != foods[2])
+				if (0 != foods[2])				
 					foods[2]--;
 				else
 					isTripEnd = true;
 				break;
 			}
 			if (isTripEnd) break;
-			else dayCnt++;
+			else restDays++;
 		}
-		dayCnt -= itDay;
-		v_dayCnt.push_back(dayCnt);
-		std::copy(std::begin(tmpStoredFoods), std::end(tmpStoredFoods), std::begin(foods));
+		restDays -= itDay;
+		arr_RestDays.push_back(restDays);
+		std::copy(std::begin(originalRestFoods), std::end(originalRestFoods), std::begin(foods));
 	}
-	sort(v_dayCnt.begin(), v_dayCnt.end());
-	cout << v_dayCnt[v_dayCnt.size() - 1];
+	sort(arr_RestDays.begin(), arr_RestDays.end());
+	std::cout << baseDays + arr_RestDays[arr_RestDays.size()-1];
 	return 0;
 }
