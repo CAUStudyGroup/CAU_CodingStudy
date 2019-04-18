@@ -70,7 +70,6 @@ int main()
 			{
 				if (s.top().x == N - 1 && s.top().y == M - 1)
 				{
-					//break;
 					if (min >= s.top().count)
 					{
 						min = s.top().count; // 지금의 카운트가 저장되어있음	
@@ -82,13 +81,10 @@ int main()
 			{
 				if (min >= c)
 					min = c;
-				break;
 			}
 		}
 		if (s.empty())
 		{
-			if (min >= c)
-				min = c;
 			break;
 		}
 	}
