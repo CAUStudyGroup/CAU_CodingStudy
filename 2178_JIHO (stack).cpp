@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <stack>
 
@@ -7,7 +8,7 @@ struct block
 {
 	int x;
 	int y;
-	int count; 
+	int count;
 	int stat;
 };
 
@@ -23,13 +24,12 @@ int main()
 	{
 		cin >> arr[i]; //배열 초기화
 	}
-	
+
 	s.push({ 0,0,1,0 });
 
-	int run = 1;
-	while (run == 1)
+	while (1)
 	{
-		int a = s.top().x; 
+		int a = s.top().x;
 		int b = s.top().y;
 		int c = s.top().count;
 		int d = s.top().stat;
@@ -79,13 +79,21 @@ int main()
 				}
 			}
 			else
+			{
+				if (min >= c)
+					min = c;
 				break;
+			}
 		}
-		if (s.empty()==1)
+		if (s.empty())
+		{
+			if (min >= c)
+				min = c;
 			break;
+		}
 	}
 
-	cout << min<<'\n';
+	cout << min << '\n';
 
 	return 0;
 }
