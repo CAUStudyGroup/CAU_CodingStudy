@@ -4,10 +4,7 @@ using namespace std;
 int arr[1000002];
 int leftArr[500002];
 int rightArr[500002];
-//O(nlogn) sort needed
-void heapSort() {
-
-}
+//2751 Merge Sort (Huge Data)
 void merge(int left, int mid, int right)
 {
 	int i, j, k;
