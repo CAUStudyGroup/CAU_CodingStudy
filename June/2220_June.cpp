@@ -1,32 +1,29 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-inline int getParentIdx(int idx) {
-	return idx / 2;
+void Swap(vector<int>& arr, int n1, int n2) {
+	int tmp = arr[n1];
+	arr[n1] = arr[n2];
+	arr[n2] = tmp;
 }
 
-inline int getLChildIdx(int idx) {
-	return idx * 2;
-}
-
-inline int getRChildIdx(int idx) {
-	return getLChildIdx(idx) + 1;
-}
-
-void heapify(int arr[]) {
-	
-}
-
-void heapSort(int arr[], int len) {
-
-}
-
-int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	int n;
-	cin >> n;
-	//1~n까지 최악의 힙 구성하기.
+int main(void) {
+	int num;
+	cin >> num;
+	vector<int> heapArr(num + 1, 0); //0으로 Vector 초기화
+	heapArr[1] = 1;
+	for (int i = 2; i <= num; i++) {
+		heapArr[i] = i; 
+		int j = i - 1; //항상 1이 여기있음.
+		Swap(heapArr, i, j);
+		while (j != 1) { //루트까지 올라가자
+			Swap(heapArr, j, j / 2); //부모가 j/2
+			j = j / 2;
+		}
+	}
+	for (int i = 1; i <= num; i++)
+		cout << heapArr[i] << ' ';
 	return 0;
 }

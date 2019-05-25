@@ -1,9 +1,7 @@
 #include <iostream>
-#include <string>
-#include <algorithm>
+#include <vector>
 using namespace std;
-int arr[1000002];
-void radixSort(int d) {
+void radixSort(vector<int>& arr, int d) {
 
 }
 int main() {
@@ -11,19 +9,20 @@ int main() {
 	cin.tie(NULL);
 	int N, num, i, d=0, _max = 0;
 	cin >> N;
+	vector<int> arr(N, 0);
 	for (i = 0; i < N; i++) {
 		cin >> num;
+		_max = _max < num ? num : _max;
 		arr[i] = num;
 	}
-	_max = *max_element(arr, arr + N);
-	string strMax;
-	strMax = to_string(_max);
-	d = strMax.length();
-	/*
-	radixSort(d);
+	while (_max != 0) {
+		_max /= 10;
+		d++;
+	}
+	radixSort(arr, d);
 
 	for (i = 0; i < N; i++) {
 		cout << arr[i] << '\n';
-	}*/
+	}
 	return 0;
 }
