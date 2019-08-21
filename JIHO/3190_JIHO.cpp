@@ -5,7 +5,7 @@
 using namespace std;
 
 int board[101][101];
-int k, n,l,x;
+int k, n, l, x;
 int apx, apy;
 char c;
 int tailx = 0, taily = 0;
@@ -18,19 +18,11 @@ queue<pair<int, int>> snake;
 int dfs(int x, int y, int t, int d)
 {
 	board[x][y] = 1;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-			cout << board[i][j];
-		cout << "\n";
-	}
-	cout << '\n';
-	//방향 바꿀 시간이 됐다면
+
 	if (!time.empty())
 	{
 		if (t == time.top().first)
 		{
-			// 바꿔야 하는 방향 설정
 			tmp = time.top().second;
 			if (tmp == 'L')
 			{
@@ -81,7 +73,7 @@ int dfs(int x, int y, int t, int d)
 			}
 			else
 			{
-				cout << t+1 << '\n';
+				cout << t + 1 << '\n';
 				return 0;
 			}
 		}
@@ -111,7 +103,7 @@ int dfs(int x, int y, int t, int d)
 			}
 			else
 			{
-				cout << t+1 << '\n';
+				cout << t + 1 << '\n';
 				return 0;
 			}
 		}
@@ -141,7 +133,7 @@ int dfs(int x, int y, int t, int d)
 			}
 			else
 			{
-				cout << t+1 << '\n';
+				cout << t + 1 << '\n';
 				return 0;
 			}
 		}
@@ -166,12 +158,12 @@ int dfs(int x, int y, int t, int d)
 			}
 			else if (board[x - 1][y] == 2)
 			{
-				board[x-1][y] = 1;
+				snake.push({ x - 1,y });
 				dfs(x - 1, y, ++t, d);
 			}
 			else
 			{
-				cout << t+1 << '\n';
+				cout << t + 1 << '\n';
 				return 0;
 			}
 		}
@@ -200,7 +192,7 @@ int main()
 	}
 	//board[0][0] = 1;
 	snake.push({ 0,0 });
-	dfs(0,0,0,0);
+	dfs(0, 0, 0, 0);
 
 	return 0;
 }
